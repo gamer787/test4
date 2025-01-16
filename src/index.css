@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon-pink: #ff2d8d;
+  --neon-blue: #00ffff;
+  --neon-purple: #bf00ff;
+  --neon-green: #39ff14;
+  --dark-bg: #0a0a0f;
+  --darker-bg: #050507;
+  --card-bg: #151520;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b0;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-primary);
+}
+
+.neon-border {
+  box-shadow: 0 0 10px var(--neon-blue),
+              0 0 20px var(--neon-blue);
+}
+
+.neon-text {
+  text-shadow: 0 0 10px var(--neon-blue),
+               0 0 20px var(--neon-blue);
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, var(--darker-bg) 0%, var(--card-bg) 100%);
+}
+
+.glass-effect {
+  background: rgba(21, 21, 32, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Cyberpunk button styles */
+.btn-cyberpunk {
+  background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+  border: 1px solid var(--neon-blue);
+  box-shadow: 0 0 10px var(--neon-blue);
+  transition: all 0.3s ease;
+}
+
+.btn-cyberpunk:hover {
+  box-shadow: 0 0 20px var(--neon-blue),
+              0 0 40px var(--neon-purple);
+  transform: translateY(-1px);
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .glass-effect {
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.2);
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--neon-blue);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-item.active::after {
+    width: 100%;
+  }
+}
